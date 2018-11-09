@@ -24,8 +24,8 @@ import com.github.pagehelper.PageHelper;
 
 @Controller
 @SpringBootApplication
-@MapperScan("com.khwb.dao")
-@ComponentScan("com.*")
+@MapperScan("ch.khwb.dao")
+@ComponentScan("ch.*")
 public class StartApplication {
 	
 	/*启动测试*/
