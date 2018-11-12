@@ -4,7 +4,10 @@
 <groupId>ch</groupId>
 <artifactId>my-springcloud</artifactId>
 <version>0.0.1-SNAPSHOT</version>
-<packaging>war</packaging>
+    <modules>
+        <module>service-eureka</module>
+    </modules>
+    <packaging>pom</packaging>
 
 <!-- Jar版本管理 -->
 <properties>
@@ -139,6 +142,18 @@
 
 
 </dependencies>
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Dalston.SR3</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
 <build>
     <plugins>
         <plugin>
