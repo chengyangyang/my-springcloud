@@ -9,6 +9,7 @@
         <module>service-zuul</module>
         <module>service-feign</module>
         <module>my-goods</module>
+        <module>my-order</module>
     </modules>
     <packaging>pom</packaging>
 

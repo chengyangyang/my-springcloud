@@ -1,4 +1,4 @@
-package ch.goods;
+package ch.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,10 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * version 1.0
  */
 @SpringBootApplication
-public class GoodsApplication {
+public class OrderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GoodsApplication.class,args);
+        SpringApplication.run(OrderApplication.class,args);
         //new SpringApplicationBuilder(Application.class).web(true).run(args);
     }
 }
