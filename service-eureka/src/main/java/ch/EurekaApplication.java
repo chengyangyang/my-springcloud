@@ -1,10 +1,7 @@
-package ch.start;
+package ch;
 
-import javafx.application.Application;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
@@ -16,10 +13,10 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  */
 @EnableEurekaServer
 @SpringBootApplication
-public class StartEureka {
+public class EurekaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StartEureka.class,args);
+        SpringApplication.run(EurekaApplication.class,args);
         //new SpringApplicationBuilder(Application.class).web(true).run(args);
     }
 }
