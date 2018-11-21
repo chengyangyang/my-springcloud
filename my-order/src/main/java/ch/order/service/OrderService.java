@@ -3,12 +3,10 @@ package ch.order.service;
 import ch.order.entity.Goods;
 import ch.order.entity.Order;
 import ch.order.entity.OrderDtails;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Description:
@@ -19,6 +17,10 @@ import java.util.Map;
  */
 @Service
 public class OrderService {
+
+    @Autowired
+    GoodsService goodsService;
+
 
     private static final Map<String,Order> map = new HashMap<>();
 
@@ -37,7 +39,7 @@ public class OrderService {
         orderDtails.setOrderId("1");
         //创建商品
         Goods goods = new Goods();
-        goods.setId("11");
+        goods.setId("1");
         orderDtails.setGoods(goods);
         detailsList.add(orderDtails);
 
@@ -45,7 +47,7 @@ public class OrderService {
         orderDtails1.setOrderId("2");
         //创建商品
         Goods goods1 = new Goods();
-        goods1.setId("12");
+        goods1.setId("2");
         orderDtails1.setGoods(goods);
         detailsList.add(orderDtails1);
 
@@ -60,7 +62,15 @@ public class OrderService {
      * @return
      */
     public Order queryOrderById(String orderId){
-        return map.get(orderId);
+        Order order = map.get(orderId);
+        //查询订单详情
+        List<OrderDtails> orderTails = order.getOrderTails();
+        for(OrderDtails t : orderTails){
+            String goodsId = t.getGoods().getId();
+            Goods goods = goodsService.queryGoodsById(goodsId);
+            t.setGoods(goods);
+        }
+        return order;
     }
 
 }
