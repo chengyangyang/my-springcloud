@@ -49,7 +49,7 @@ public class GoodsService {
      */
     public Goods queryGoodsByIdError(String id){
         Goods goods = new Goods();
-        goods.setDesc("请求不到商品服务");
+        goods.setDesc("请求不到商品服务,服务器出现异常.请求参数"+id);
         return goods;
     }
 }
