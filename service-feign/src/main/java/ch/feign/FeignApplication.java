@@ -17,7 +17,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 @EnableDiscoveryClient
 @EnableFeignClients
 public class FeignApplication {
-
+    //第一次请求有时候会出现错误,重新请求就会好
     public static void main(String[] args) {
         SpringApplication.run(FeignApplication.class,args);
     }

@@ -10,6 +10,7 @@
         <module>service-feign</module>
         <module>my-goods</module>
         <module>my-order</module>
+        <module>service-config</module>
     </modules>
     <packaging>pom</packaging>
 
