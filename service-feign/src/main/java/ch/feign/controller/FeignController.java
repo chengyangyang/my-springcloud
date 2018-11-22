@@ -1,5 +1,7 @@
-package feign;
+package ch.feign.controller;
 
+import ch.feign.entity.Goods;
+import ch.feign.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,11 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeignController {
 
     @Autowired
-    BalancedFeign balancedFeign;
+    GoodsService goodsService;
 
     @GetMapping("/test/findById")
-    public String makeFeign(@RequestParam("id") String id) {
-        return balancedFeign.sayFromClientOne(id);
+    public Goods getGoods(@RequestParam("id") String id) {
+        return goodsService.queryGoodsById(id);
     }
 
 }

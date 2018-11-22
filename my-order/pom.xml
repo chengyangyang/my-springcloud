@@ -9,7 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>my-order</artifactId>
-    <description>订单的案例</description>
+    <description>订单的案例(服务消费者)</description>
+
+    <!--订单请求商品用的是restTemlate工具,hystrix 是请求错误的时候,调用的方法-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>

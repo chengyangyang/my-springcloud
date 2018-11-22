@@ -1,6 +1,7 @@
 package ch.order.service;
 
 import ch.order.entity.Goods;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -28,6 +29,7 @@ public class GoodsService {
      * @param id
      * @return
      */
+    @HystrixCommand(fallbackMethod = "queryGoodsByIdError")
     public Goods queryGoodsById(String id){
         String serviceId = "my-goods";
         List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
@@ -35,8 +37,19 @@ public class GoodsService {
             return null;
         }
         ServiceInstance serviceInstance = instances.get(0);
-        String url = "http://"+serviceInstance.getHost()+":"+serviceInstance.getPort();
+        String url = "http://"+serviceInstance.getServiceId()+":"+serviceInstance.getPort();
         Goods forEntity = restTemplate.getForObject(url+"/goods/"+id, Goods.class);
         return forEntity;
+    }
+
+    /**
+     * 断路器返回类型和参数都要和原始相同
+     * @param id
+     * @return
+     */
+    public Goods queryGoodsByIdError(String id){
+        Goods goods = new Goods();
+        goods.setDesc("请求不到商品服务");
+        return goods;
     }
 }
