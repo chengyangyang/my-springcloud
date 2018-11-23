@@ -1,0 +1,13 @@
+
+
+
+
+spring:
+  application:
+    name: my-config-client    #遵循http映射规则
+
+server:
+  port: 9004
+
+
+
