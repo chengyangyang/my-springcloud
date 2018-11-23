@@ -1,6 +1,23 @@
 
 #用来程序引导时执行，应用于更加早期配置信息读取，不能放到application中去
+#spring:
+#  cloud:
+#    config:
+#      uri: http://localhost:8903/
+
+#如果使用eureka,则不需要上面的步骤
+#添加注册中心(进行注册)
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8901/eureka/
+
+#开启服务并添加
 spring:
   cloud:
     config:
-      uri: http://localhost:8903/
+      discovery:
+        enabled: true
+        service-id: service-config
+
+
