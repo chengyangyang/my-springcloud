@@ -1,0 +1,49 @@
+
+#本项目端口号
+server:
+  port: 8904
+
+#服务的名称
+spring:
+  application:
+    name: service-zipkin
+  sleuth:
+    enabled: false #表示当前程序不使用sleuth
+  datasource:
+    name: zipkin
+    schema[0]: classpath:/zipkin.sql #数据库脚本创建地址，当有多个是可使用[x]表示集合第几个元素
+    url: jdbc:mysql://localhost:3306/zipkin?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+    initialize: true
+    continue-on-error: true
+    type: com.zaxxer.hikari.HikariDataSource  #数据库连接池
+#添加数据库后，重启后数据也不会消失
+#rabbitmq配置(使用MQ)
+#spring.rabbitmq.host: localhost
+#spring.rabbitmq.port: 5672
+#spring.rabbitmq.username: guest
+#spring.rabbitmq.password: guest
+
+
+#添加注册中心(进行注册)
+eureka:
+  instance: localhost
+  client:
+    service-url:
+     defaultZone: http://localhost:8901/eureka/
+    register-with-eureka: true
+    fetch-registry: false
+
+#表示zipkin数据存储方式是mysql
+zipkin.storage.type: mysql
+
+#另，在网上看到有说mysql保存链路调用信息，数据量大后会卡死，推荐使用elasticsearch保存数据，具体没有试过。
+
+
+
+
+
+
+
