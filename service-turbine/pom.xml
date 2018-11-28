@@ -8,22 +8,17 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>my-order</artifactId>
-    <description>订单的案例(服务消费者)</description>
 
-    <!--订单请求商品用的是restTemlate工具,hystrix 是请求错误的时候,调用的方法 断路器-->
+    <artifactId>service-turbine</artifactId>
+    <description>
+        断路器监控的聚合监控
+    </description>
+
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
-        </dependency>
-
         <!--断路器监控-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+            <artifactId>spring-cloud-starter-turbine</artifactId>
         </dependency>
     </dependencies>
-
-
 </project>

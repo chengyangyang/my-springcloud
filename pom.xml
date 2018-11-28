@@ -13,6 +13,7 @@
         <module>service-config</module>
         <module>my-config-client</module>
         <module>service-zipkin</module>
+        <module>servicetur-bine</module>
     </modules>
     <packaging>pom</packaging>
 

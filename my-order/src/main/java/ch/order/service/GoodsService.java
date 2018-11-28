@@ -33,9 +33,9 @@ public class GoodsService {
     public Goods queryGoodsById(String id){
         String serviceId = "my-goods";
         List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
-        if(instances.isEmpty() || instances == null){
+       /* if(instances.isEmpty() || instances == null){
             return null;
-        }
+        }*/
         ServiceInstance serviceInstance = instances.get(0);
         String url = "http://"+serviceInstance.getServiceId()+":"+serviceInstance.getPort();
         Goods forEntity = restTemplate.getForObject(url+"/goods/"+id, Goods.class);
