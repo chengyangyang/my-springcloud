@@ -1,0 +1,10 @@
+
+#参数的测试
+person:
+  age: 11111
+  name: 111111
+  map: {a: a,b: b}
+  list: [a,b,c]
+  bl: true
+  create-date: 2018/12/12
+  mail: 3905191111111111111@qq.com

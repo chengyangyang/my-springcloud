@@ -1,0 +1,48 @@
+
+#本项目端口号
+server:
+  port: 8888
+
+#服务的名称
+spring:
+  application:
+    name: my-test
+  sleuth:
+    enabled: false #表示当前程序不使用sleuth
+  datasource:
+    name: zipkin
+    url: jdbc:mysql://localhost:3306/zipkin?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+    initialize: true
+    continue-on-error: true
+#添加数据库后，重启后数据也不会消失
+#rabbitmq配置(使用MQ)
+#spring.rabbitmq.host: localhost
+#spring.rabbitmq.port: 5672
+#spring.rabbitmq.username: guest
+#spring.rabbitmq.password: guest
+
+
+#添加注册中心(进行注册)
+eureka:
+  instance: localhost
+  client:
+    service-url:
+     defaultZone: http://localhost:8901/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+
+
+#参数的测试
+person:
+  age: 12
+  name: 你好
+  map: {a: a,b: b}
+  list: [a,b,c]
+  bl: true
+  create-date: 2018/12/12
+  mail: 390519@qq.com
+
+

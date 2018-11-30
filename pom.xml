@@ -10,10 +10,11 @@
         <module>service-feign</module>
         <module>my-goods</module>
         <module>my-order</module>
+        <module>my-test</module>
         <module>service-config</module>
         <module>my-config-client</module>
         <module>service-zipkin</module>
-        <module>servicetur-bine</module>
+        <module>service-turbine</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -76,6 +77,20 @@
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
+    <!-- 添加热部署 提高开发效率-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
+
+    <!--导入文件配置器 配置文件提示-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-configuration-processor</artifactId>
+        <optional>true</optional>
+    </dependency>
+
     <!--添加数据库依赖-->
     <dependency>
         <groupId>mysql</groupId>
@@ -102,6 +117,7 @@
 <build>
     <plugins>
         <plugin>
+            <!--可将程序打包成可执行的jar包-->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
         </plugin>
